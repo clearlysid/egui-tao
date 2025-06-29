@@ -199,7 +199,7 @@ impl Gpu {
     }
 }
 
-pub struct MyTestWindow {
+pub struct DemoApp {
     window: Arc<Window>,
     renderer: Renderer,
     gui_state: egui_tao::State,
@@ -208,10 +208,10 @@ pub struct MyTestWindow {
     switch_position: bool,
 }
 
-impl MyTestWindow {
+impl DemoApp {
     fn new(event_loop: &EventLoop<()>) -> Self {
         let window = WindowBuilder::new()
-            .with_title("Standalone Tao/Wgpu Example")
+            .with_title("demo tao window")
             .build(event_loop)
             .expect("Failed to create window");
 
@@ -334,7 +334,7 @@ impl MyTestWindow {
 
 fn main() {
     let event_loop = EventLoop::new();
-    let mut app = MyTestWindow::new(&event_loop);
+    let mut app = DemoApp::new(&event_loop);
 
     app.window.request_redraw();
 
