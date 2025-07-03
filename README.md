@@ -28,3 +28,10 @@ My next steps are:
 1. solve my own use-case for [Helmer](https://www.helmer.app) app.
 2. check if there is interest in this project by the involved projects and communities.
 3. explore ways of working on this with others if interested (assuming 2 goes well).
+
+
+update 4th july 2025
+
+I was progressing a little further when I realized that the `tauri-egui` integration goes a little deeper than _just_ rendering UI in a tauri window. It actually wraps `eframe`, a full application manager designed for `egui` and handles bi-directional communication between `tauri` windows and `eframe` windows, so you can use the API of your choice to manage them.
+
+This is overkill for my use and forces us to maintain multiple "soft forks". I'm better off making a leaner integration where the `Window` handle from tauri can be used to as a render target for some `egui`, but the control responsibility lies exclusively with the Tauri runtime, not eframe/egui.
